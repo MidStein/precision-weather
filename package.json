@@ -1,0 +1,22 @@
+{
+  "name": "weather-app",
+  "version": "1.0.0",
+  "description": "Weather Forecast Site using OpenWeatherMap API",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MidStein/weather-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MidStein/weather-app/issues"
+  },
+  "homepage": "https://github.com/MidStein/weather-app#readme",
+  "devDependencies": {
+    "eslint": "^8.23.1"
+  }
+}
