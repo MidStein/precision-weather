@@ -1,5 +1,6 @@
 const inputSel = document.querySelector('input');
 const buttonSel = document.querySelector('button');
+const dispContSel = document.querySelector('.display-container');
 const Weather = {};
 
 const getWeatherObj = async function(location) {
@@ -34,16 +35,16 @@ const displayWeather = async function() {
     }
     try {
         const weatherObj = await getWeatherObj(inputSel.value);
-        console.log(`Weather Type: ${weatherObj.main}`);
-        console.log(`Weather Description: ${weatherObj.description}`);
-        console.log(`Temperature: ${Math.round(weatherObj.temp)} degree Celcius`);
-        console.log(`Feels Like: ${Math.round(weatherObj.feels_like)} degree Celcius`);
-        console.log(`Minimum Temperature: ${Math.round(weatherObj.temp_max)} degree Celcius`);
-        console.log(`Maximum Temperature: ${Math.round(weatherObj.temp_max)} degree Celcius`);
-        console.log(`Pressure: ${weatherObj.pressure} hPa`);
-        console.log(`Humidity: ${weatherObj.humidity}%`);
-        console.log(`Wind Speed: ${weatherObj.wind_speed} meters per second`);
-        console.log(`Cloud: ${weatherObj.cloud}%`);
+        dispContSel.querySelector('.weather-type').textContent = `Weather Type: ${weatherObj.main}`;
+        dispContSel.querySelector('.weather-description').textContent = `Weather Description: ${weatherObj.description}`;
+        dispContSel.querySelector('.temperature').textContent = `Temperature: ${Math.round(weatherObj.temp)} degree Celcius`;
+        dispContSel.querySelector('.feels-like').textContent = `Feels Like: ${Math.round(weatherObj.feels_like)} degree Celcius`;
+        dispContSel.querySelector('.minimum-temperature').textContent = `Minimum Temperature: ${Math.round(weatherObj.temp_max)} degree Celcius`;
+        dispContSel.querySelector('.maximum-temperature').textContent = `Maximum Temperature: ${Math.round(weatherObj.temp_max)} degree Celcius`;
+        dispContSel.querySelector('.pressure').textContent = `Pressure: ${weatherObj.pressure} hPa`;
+        dispContSel.querySelector('.humidity').textContent = `Humidity: ${weatherObj.humidity}%`;
+        dispContSel.querySelector('.wind-speed').textContent = `Wind Speed: ${weatherObj.wind_speed} meters per second`;
+        dispContSel.querySelector('.cloud').textContent = `Cloud: ${weatherObj.cloud}%`;
     } catch (err) {
         if (err.message === 'response status code 404') {
             console.log('No such city exists.');
