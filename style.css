@@ -4,7 +4,13 @@ body {
 }
 
 form {
+    float: left;
+}
+form+img {
+    height: 25px;
+    width: 25px;
     margin-bottom: 48px;
+    margin-left: 8px;
 }
 
 .weather-description {
@@ -25,6 +31,7 @@ form {
     height: 300px;
     width: 500px;
 }
+
 img {
     height: 200px;
     width: 200px;

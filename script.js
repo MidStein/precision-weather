@@ -1,5 +1,6 @@
 const inputSel = document.querySelector('input');
 const buttonSel = document.querySelector('button');
+const loadingGif = document.querySelector('form+img');
 const dispContSel = document.querySelector('.display-container');
 const Weather = {};
 
@@ -46,8 +47,11 @@ const displayWeather = async function() {
     if (inputSel.value === '') {
         inputSel.setCustomValidity('This field cannot be empty.')
         inputSel.reportValidity();
+        return;
     }
     try {
+        dispContSel.style.visibility = 'hidden';
+        loadingGif.style.visibility = 'visible';
         const weatherObj = await getWeatherObj(inputSel.value);
         const gifJsons = await Promise.all([
             getGif(weatherObj.description), 
@@ -63,6 +67,8 @@ const displayWeather = async function() {
             getGif('calm sky'),
             getGif('cloudy')
         ]);
+        loadingGif.style.visibility = 'hidden';
+        dispContSel.style.visibility = 'visible';
         dispContSel.querySelector('.weather-description>img').src = gifJsons[0].data.images.original.url;
         if (weatherObj.temp < 25) {
             dispContSel.querySelector('.temperature>img').src = gifJsons[1].data.images.original.url;
@@ -73,8 +79,7 @@ const displayWeather = async function() {
             dispContSel.querySelector('.feels-like>img').src = gifJsons[3].data.images.original.url;
         } else {
             dispContSel.querySelector('.feels-like>img').src = gifJsons[4].data.images.original.url;
-        }
-        
+        }        
         dispContSel.querySelector('.minimum-temperature>img').src = gifJsons[5].data.images.original.url;
         dispContSel.querySelector('.maximum-temperature>img').src = gifJsons[6].data.images.original.url;
         dispContSel.querySelector('.pressure>img').src = gifJsons[7].data.images.original.url;
@@ -95,8 +100,10 @@ const displayWeather = async function() {
         dispContSel.querySelector('.wind-speed>.text').textContent = `Wind Speed: ${weatherObj.wind_speed} mps`;
         dispContSel.querySelector('.cloud>.text').textContent = `Cloud: ${weatherObj.cloud}%`;
     } catch (err) {
+        loadingGif.style.visibility = 'hidden';
         if (err.message === 'response status code 404') {
-            console.log('No such city exists.');
+            inputSel.setCustomValidity('No such city exists.')
+            inputSel.reportValidity();
         } else {
             throw err;
         }
