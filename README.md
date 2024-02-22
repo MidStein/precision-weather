@@ -1,4 +1,34 @@
-# weather-app
-A simple weather forecasting website useful for making decisions regarding day to day work and travel. Users can enter their location and almost instantly all kinds of handy information like type of weather, temperature, pressure, humidity will be available at their fingertips. The data will be displayed with cute and funny gifs to keep the user engaged.
+# Weather App
 
-By making this project I will learn to handle APIs and filtering out useful data from them. As fetching API data is an asynchronous task, another goal of this project is to learn how to write asynchronous javascript code using promises, async/await and how to handle errors. Form validation will also be slightly touched on while making this.
+Tells you about the weather with funny gifs
+
+## Description
+
+Enter a name of a city and it will tell you how the weather conditions there
+look like right now along with pressure, humidity, wind speed and cloud cover.
+
+## Running locally
+
+1. `git clone https://github.com/MidStein/weather-app.git`
+2. `cd weather-app`
+3. `npm install` to install dependencies
+4. `npm start` to run the app. Open
+  [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+## 3rd party APIs
+
+[OpenWeatherMap](https://openweathermap.org/api)
+: To fetch weather data
+
+[Giphy](https://developers.giphy.com/)
+: To fetch gifs to display
+
+(I know what you might be concerned about, but let's just ignore it for
+the sake of this simple app)
+
+## Dependencies
+
+None whatsover. Just like [God](https://en.wikipedia.org/wiki/Brendan_Eich "of
+Javascript") intended.
+
+## Screen capture
