@@ -32,3 +32,5 @@ None whatsover. Just like [God](https://en.wikipedia.org/wiki/Brendan_Eich "of
 Javascript") intended.
 
 ## Screen capture
+
+https://github.com/MidStein/weather-app/assets/78083747/9aefe38d-cfbd-40f3-b432-9fd185e32a82
